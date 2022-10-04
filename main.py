@@ -1,8 +1,8 @@
+import smtplib
 import requests
-import pprint
 from bs4 import BeautifulSoup
 
-pp = pprint.PrettyPrinter(width=41, compact=True)
+
 amazon_headers = {
     "Accept": "text/plain",
     "Accept-Charset": "utf-8",
