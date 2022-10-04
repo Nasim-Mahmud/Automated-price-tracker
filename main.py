@@ -3,6 +3,8 @@ from smtplib import *
 import requests
 from bs4 import BeautifulSoup
 
+EXPECTED_PRICE = 60
+
 amazon_headers = {
     "Accept": "text/plain",
     "Accept-Charset": "utf-8",
@@ -27,7 +29,7 @@ price_symbol = soup.find(name="span", class_="a-price-symbol").text
 my_email = os.environ["myEmail"]
 my_pass = os.environ["myPass"]
 test_email = os.environ["testEmail"]
-if price < 60:
+if price <= EXPECTED_PRICE:
     with SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(user=my_email, password=my_pass)
