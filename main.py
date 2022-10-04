@@ -35,6 +35,7 @@ if price <= EXPECTED_PRICE:
         connection.login(user=my_email, password=my_pass)
         connection.sendmail(from_addr=my_email, to_addrs=test_email,
                             msg="Subject: Lowest Price alert!\n\n"
-                                f"Hey Buddy, the price of {product_name} is down to {price_symbol}{price}$!"
+                                f"Hey Buddy,\n"
+                                f"The price of {product_name} is down to {price_symbol}{price}!\n"
                                 f"It's the perfect time to buy it."
                             )
