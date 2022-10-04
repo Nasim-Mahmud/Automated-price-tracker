@@ -21,6 +21,8 @@ product_name = soup.find(name="span", id="productTitle").text.strip()
 print(product_name)
 price = float(soup.find(name="span", class_="a-offscreen").text.replace("$", ""))
 print(price)
+price_symbol = soup.find(name="span", class_="a-price-symbol").text
+print(price_symbol)
 
 my_email = os.environ["myEmail"]
 my_pass = os.environ["myPass"]
@@ -31,5 +33,6 @@ if price < 60:
         connection.login(user=my_email, password=my_pass)
         connection.sendmail(from_addr=my_email, to_addrs=test_email,
                             msg="Subject: Lowest Price alert!\n\n"
-                                f"Hey Buddy, the price of {product_name} is down to {price}! You can buy it now."
+                                f"Hey Buddy, the price of {product_name} is down to {price_symbol}{price}$!"
+                                f"It's the perfect time to buy it."
                             )
