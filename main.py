@@ -18,11 +18,11 @@ data = response.text
 soup = BeautifulSoup(data, "lxml")
 
 product_name = soup.find(name="span", id="productTitle").text.strip()
-print(product_name)
+# print(product_name)
 price = float(soup.find(name="span", class_="a-offscreen").text.replace("$", ""))
-print(price)
+# print(price)
 price_symbol = soup.find(name="span", class_="a-price-symbol").text
-print(price_symbol)
+# print(price_symbol)
 
 my_email = os.environ["myEmail"]
 my_pass = os.environ["myPass"]
