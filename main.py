@@ -16,5 +16,5 @@ response = requests.get(url="https://www.amazon.com/Passport-Portable-External-D
 data = response.text
 soup = BeautifulSoup(data, "lxml")
 
-price = soup.find(name="span", class_="a-offscreen").text.replace("$","")
+price = float(soup.find(name="span", class_="a-offscreen").text.replace("$",""))
 print(price)
